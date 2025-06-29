@@ -1,8 +1,6 @@
-// Global variables
-        let cart = [];
+ let cart = [];
         let cartCount = 0;
 
-        // Initialize when page loads
         document.addEventListener('DOMContentLoaded', function() {
             initializeWebsite();
             loadCartFromStorage();
@@ -10,7 +8,6 @@
         });
 
         function initializeWebsite() {
-            // Add smooth scrolling
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     e.preventDefault();
@@ -24,7 +21,6 @@
                 });
             });
 
-            // Header scroll effect
             window.addEventListener('scroll', function() {
                 const header = document.querySelector('.main-header');
                 if (window.scrollY > 100) {
@@ -36,7 +32,6 @@
                 }
             });
 
-            // Animate elements on scroll
             const observerOptions = {
                 threshold: 0.1,
                 rootMargin: '0px 0px -50px 0px'
@@ -51,7 +46,6 @@
                 });
             }, observerOptions);
 
-            // Observe all cards
             document.querySelectorAll('.category-card, .product-card, .blog-card').forEach(card => {
                 card.style.opacity = '0';
                 card.style.transform = 'translateY(30px)';
@@ -61,13 +55,10 @@
         }
 
         function setupEventListeners() {
-            // Newsletter form
             document.getElementById('newsletterForm').addEventListener('submit', handleNewsletterSubmit);
 
-            // Search functionality
             document.getElementById('searchInput').addEventListener('input', handleSearch);
 
-            // Modal close
             document.querySelector('.close').addEventListener('click', closeModal);
             window.addEventListener('click', function(event) {
                 const modal = document.getElementById('productModal');
@@ -76,11 +67,9 @@
                 }
             });
 
-            // Mobile menu toggle
             document.querySelector('.mobile-menu-toggle').addEventListener('click', toggleMobileMenu);
         }
 
-        // Cart functionality
         function addToCart(productName, price) {
             const item = {
                 id: Date.now(),
@@ -99,7 +88,6 @@
         function updateCartUI() {
             document.querySelector('.cart-count').textContent = cartCount;
             
-            // Add animation to cart icon
             const cartIcon = document.querySelector('.cart-icon');
             cartIcon.style.transform = 'scale(1.2)';
             setTimeout(() => {
@@ -108,7 +96,6 @@
         }
 
         function saveCartToStorage() {
-            // Note: Using sessionStorage instead of localStorage for Claude.ai compatibility
             try {
                 sessionStorage.setItem('luxuryCart', JSON.stringify(cart));
                 sessionStorage.setItem('luxuryCartCount', cartCount.toString());
@@ -134,7 +121,6 @@
             }
         }
 
-        // Category functionality
         function showCategory(category) {
             const categoryData = {
                 vehicles: {
@@ -176,7 +162,6 @@
             }
         }
 
-        // Modal functionality
         function showModal(content) {
             document.getElementById('modalContent').innerHTML = content;
             document.getElementById('productModal').style.display = 'block';
@@ -188,7 +173,6 @@
             document.body.style.overflow = 'auto';
         }
 
-        // Search functionality
         function handleSearch(event) {
             const query = event.target.value.toLowerCase();
             const products = document.querySelectorAll('.product-card');
@@ -203,19 +187,16 @@
                 }
             });
 
-            // Show search results count
             const visibleProducts = Array.from(products).filter(p => p.style.display !== 'none');
             if (query && visibleProducts.length === 0) {
                 showNotification('No products found matching your search.');
             }
         }
 
-        // Newsletter functionality
         function handleNewsletterSubmit(event) {
             event.preventDefault();
             const email = event.target.querySelector('input[type="email"]').value;
             
-            // Simulate API call
             const button = event.target.querySelector('button');
             const originalText = button.textContent;
             button.innerHTML = '<div class="loading"></div>';
@@ -229,7 +210,6 @@
             }, 2000);
         }
 
-        // Mobile menu functionality
         function toggleMobileMenu() {
             const nav = document.querySelector('.main-nav');
             const isVisible = nav.style.display === 'block';
@@ -249,7 +229,6 @@
             }
         }
 
-        // Utility functions
         function scrollToSection(sectionId) {
             const section = document.getElementById(sectionId);
             if (section) {
@@ -261,7 +240,6 @@
         }
 
         function showNotification(message) {
-            // Create notification element
             const notification = document.createElement('div');
             notification.style.cssText = `
                 position: fixed;
@@ -280,12 +258,10 @@
             notification.textContent = message;
             document.body.appendChild(notification);
 
-            // Animate in
             setTimeout(() => {
                 notification.style.transform = 'translateX(0)';
             }, 100);
 
-            // Remove after 3 seconds
             setTimeout(() => {
                 notification.style.transform = 'translateX(100%)';
                 setTimeout(() => {
@@ -294,10 +270,8 @@
             }, 3000);
         }
 
-        // Advanced features for future PHP integration
         function simulateAPICall(endpoint, data) {
             return new Promise((resolve, reject) => {
-                // Simulate network delay
                 setTimeout(() => {
                     console.log(`API Call to ${endpoint}:`, data);
                     resolve({ success: true, data: data });
@@ -305,7 +279,6 @@
             });
         }
 
-        // Product management functions (for future database integration)
         async function loadProducts(category = 'all') {
             try {
                 const response = await simulateAPICall('/api/products', { category });
@@ -328,7 +301,6 @@
             }
         }
 
-        // Blog management functions
         async function loadBlogPosts(limit = 10) {
             try {
                 const response = await simulateAPICall('/api/blog/posts', { limit });
@@ -340,7 +312,6 @@
             }
         }
 
-        // User management functions
         async function registerUser(userData) {
             try {
                 const response = await simulateAPICall('/api/users/register', userData);
@@ -352,7 +323,6 @@
             }
         }
 
-        // Enhanced responsive behavior
         window.addEventListener('resize', function() {
             const nav = document.querySelector('.main-nav');
             if (window.innerWidth > 768) {
@@ -364,13 +334,10 @@
             }
         });
 
-        // Performance optimization
         let ticking = false;
         function updateOnScroll() {
-            // Throttle scroll events for better performance
             if (!ticking) {
                 requestAnimationFrame(function() {
-                    // Add scroll-based animations here
                     ticking = false;
                 });
                 ticking = true;
@@ -379,10 +346,8 @@
 
         window.addEventListener('scroll', updateOnScroll);
 
-        // Preload critical resources
         function preloadResources() {
             const criticalImages = [
-                // Add image URLs here when available
             ];
 
             criticalImages.forEach(src => {
@@ -391,7 +356,6 @@
             });
         }
 
-        // Initialize preloading
         preloadResources();
 
         console.log('Global Market luxury platform initialized successfully!');
