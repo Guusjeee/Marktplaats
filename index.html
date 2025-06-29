@@ -4,160 +4,322 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Global Market - High-Value Objects</title>
-    <script src="script.js"></script>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
- 
-    <section class="top-header-image">
-        <img src="media/Component 1.png" alt="Top Header Image">
+    <!-- Header -->
+    <header class="main-header">
+        <div class="header-content">
+            <a href="#" class="logo">Global Market</a>
+            
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#categories">Categories</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#showcase">Showcase</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <div class="search-bar">
+                    <input type="text" placeholder="Search luxury items..." id="searchInput">
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+                
+                <div class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </div>
+
+                <button class="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="home">
+        <div class="hero-content">
+            <h1 class="hero-title">Discover Luxury & Excellence</h1>
+            <p class="hero-subtitle">Curated collection of the world's finest high-value objects</p>
+            <button class="cta-button" onclick="scrollToSection('categories')">Explore Collection</button>
+        </div>
     </section>
 
-    <section class="hero-section">
-        <div class="leaves"></div>
-        <div class="hero-content">
-          <div class="logo">
-    <img src="media/logo.png" alt="logo">
-</div>
-            <h1 class="hero-title">Discover High-Value Objects</h1>
-            <p class="hero-subtitle">Explore our curated collection of exquisite products</p>
-            <button class="cta-button">Shop Now</button>
-            <div class="hero-nav">
-                <button class="nav-button">New Arrivals</button>
-                <button class="nav-button">Best Sellers</button>
-                <button class="nav-button">Exclusive Offers</button>
+    <!-- Categories Section -->
+    <section class="categories-section" id="categories">
+        <div class="container">
+            <h2 class="section-title">Luxury Categories</h2>
+            <p class="section-subtitle">Discover our exclusive range of premium products</p>
+            
+            <div class="categories-grid">
+                <div class="category-card" onclick="showCategory('vehicles')">
+                    <div class="category-image">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <div class="category-info">
+                        <h3 class="category-name">Luxury Vehicles</h3>
+                        <p class="category-description">Premium cars, motorcycles, and exclusive transportation</p>
+                    </div>
+                </div>
+
+                <div class="category-card" onclick="showCategory('watches')">
+                    <div class="category-image">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="category-info">
+                        <h3 class="category-name">Timepieces</h3>
+                        <p class="category-description">Exquisite watches and luxury chronographs</p>
+                    </div>
+                </div>
+
+                <div class="category-card" onclick="showCategory('jewelry')">
+                    <div class="category-image">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <div class="category-info">
+                        <h3 class="category-name">Fine Jewelry</h3>
+                        <p class="category-description">Diamonds, precious stones, and bespoke pieces</p>
+                    </div>
+                </div>
+
+                <div class="category-card" onclick="showCategory('real-estate')">
+                    <div class="category-image">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <div class="category-info">
+                        <h3 class="category-name">Real Estate</h3>
+                        <p class="category-description">Luxury properties and exclusive residences</p>
+                    </div>
+                </div>
+
+                <div class="category-card" onclick="showCategory('yachts')">
+                    <div class="category-image">
+                        <i class="fas fa-ship"></i>
+                    </div>
+                    <div class="category-info">
+                        <h3 class="category-name">Yachts & Marine</h3>
+                        <p class="category-description">Luxury yachts and premium marine vessels</p>
+                    </div>
+                </div>
+
+                <div class="category-card" onclick="showCategory('art')">
+                    <div class="category-image">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <div class="category-info">
+                        <h3 class="category-name">Art & Collectibles</h3>
+                        <p class="category-description">Fine art, rare collectibles, and investment pieces</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
- 
-    <section class="featured-section">
+    <!-- Featured Products -->
+    <section class="featured-section" id="products">
         <div class="container">
             <h2 class="section-title">Featured Products</h2>
-            <p class="section-subtitle">Handpicked just for you</p>
-            <button class="view-all-btn">View All</button>
+            <p class="section-subtitle">Handpicked luxury items from around the world</p>
             
             <div class="products-grid">
-                <!-- Row 1 -->
                 <div class="product-card">
                     <div class="product-image">
-                        <img src="YOUR_MOTORCYCLE_IMAGE_URL_HERE" alt="Luxury Motorcycle" style="width: 100%; height: 100%; object-fit: cover;">
-                        <!-- Fallback text when no image -->
-                        <span style="position: absolute; background: rgba(255,255,255,0.9); padding: 10px; border-radius: 4px;">
-                            Vervang met jouw motorfiets afbeelding
-                        </span>
+                        <div class="product-badge">New Arrival</div>
+                        <i class="fas fa-motorcycle"></i>
                     </div>
-                    <div class="product-price">$</div>
+                    <div class="product-info">
+                        <h3 class="product-name">Luxury Motorcycle</h3>
+                        <div class="product-price">$85,000</div>
+                        <button class="add-to-cart" onclick="addToCart('motorcycle', 85000)">Add to Cart</button>
+                    </div>
                 </div>
-                
+
                 <div class="product-card">
                     <div class="product-image">
-                        <img src="YOUR_WATCH_IMAGE_URL_HERE" alt="Luxury Watch" style="width: 100%; height: 100%; object-fit: cover;">
-                        <span style="position: absolute; background: rgba(255,255,255,0.9); padding: 10px; border-radius: 4px;">
-                            Vervang met jouw horloge afbeelding
-                        </span>
+                        <i class="fas fa-watch"></i>
                     </div>
-                    <div class="product-price">$</div>
+                    <div class="product-info">
+                        <h3 class="product-name">Swiss Timepiece</h3>
+                        <div class="product-price">$25,000</div>
+                        <button class="add-to-cart" onclick="addToCart('watch', 25000)">Add to Cart</button>
+                    </div>
                 </div>
-                
+
                 <div class="product-card">
                     <div class="product-image">
-                        <div class="product-badge">Limited Offer</div>
-                        <img src="YOUR_HELMET_IMAGE_URL_HERE" alt="Racing Helmet" style="width: 100%; height: 100%; object-fit: cover;">
-                        <span style="position: absolute; background: rgba(255,255,255,0.9); padding: 10px; border-radius: 4px;">
-                            Vervang met jouw helm afbeelding
-                        </span>
+                        <div class="product-badge">Limited Edition</div>
+                        <i class="fas fa-gem"></i>
                     </div>
-                    <div class="product-price">$</div>
+                    <div class="product-info">
+                        <h3 class="product-name">Diamond Necklace</h3>
+                        <div class="product-price">$150,000</div>
+                        <button class="add-to-cart" onclick="addToCart('necklace', 150000)">Add to Cart</button>
+                    </div>
                 </div>
-                
-                <!-- Row 2 -->
+
                 <div class="product-card">
                     <div class="product-image">
-                        <img src="YOUR_YACHT_IMAGE_URL_HERE" alt="Luxury Yacht" style="width: 100%; height: 100%; object-fit: cover;">
-                        <span style="position: absolute; background: rgba(255,255,255,0.9); padding: 10px; border-radius: 4px;">
-                            Vervang met jouw jacht afbeelding
-                        </span>
+                        <i class="fas fa-ship"></i>
                     </div>
-                    <div class="product-price">$</div>
+                    <div class="product-info">
+                        <h3 class="product-name">Luxury Yacht</h3>
+                        <div class="product-price">$2,500,000</div>
+                        <button class="add-to-cart" onclick="addToCart('yacht', 2500000)">Add to Cart</button>
+                    </div>
                 </div>
-                
+
                 <div class="product-card">
                     <div class="product-image">
-                        <img src="YOUR_JEWELRY_IMAGE_URL_HERE" alt="Diamond Ring" style="width: 100%; height: 100%; object-fit: cover;">
-                        <span style="position: absolute; background: rgba(255,255,255,0.9); padding: 10px; border-radius: 4px;">
-                            Vervang met jouw sieraden afbeelding
-                        </span>
+                        <i class="fas fa-home"></i>
                     </div>
-                    <div class="product-price">$</div>
+                    <div class="product-info">
+                        <h3 class="product-name">Luxury Villa</h3>
+                        <div class="product-price">$5,000,000</div>
+                        <button class="add-to-cart" onclick="addToCart('villa', 5000000)">Add to Cart</button>
+                    </div>
                 </div>
-                
+
                 <div class="product-card">
                     <div class="product-image">
-                        <img src="YOUR_MANSION_IMAGE_URL_HERE" alt="Luxury Mansion" style="width: 100%; height: 100%; object-fit: cover;">
-                        <span style="position: absolute; background: rgba(255,255,255,0.9); padding: 10px; border-radius: 4px;">
-                            Vervang met jouw villa afbeelding
-                        </span>
+                        <i class="fas fa-palette"></i>
                     </div>
-                    <div class="product-price">$</div>
+                    <div class="product-info">
+                        <h3 class="product-name">Fine Art Piece</h3>
+                        <div class="product-price">$750,000</div>
+                        <button class="add-to-cart" onclick="addToCart('art', 750000)">Add to Cart</button>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Customer Reviews Section -->
-    <section class="reviews-section">
+    <!-- Blog Section -->
+    <section class="blog-section" id="blog">
         <div class="container">
-            <div class="reviews-content">
-                <div class="reviews-text">
-                    <h2 class="reviews-title">Customer Reviews</h2>
-                    <p class="reviews-subtitle">See what our customers are saying</p>
-                    <button class="leave-review-btn">Leave a Review</button>
-                </div>
-                
-                <div class="reviews-grid">
-                    <div class="review-card">
-                        <div class="review-name">naam</div>
-                        <div class="review-stars">★★★★★</div>
+            <h2 class="section-title">Latest Stories</h2>
+            <p class="section-subtitle">Insights from the world of luxury</p>
+            
+            <div class="blog-grid">
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <i class="fas fa-newspaper"></i>
                     </div>
-                    <div class="review-card">
-                        <div class="review-name">naam</div>
-                        <div class="review-stars">★★★★★</div>
+                    <div class="blog-content">
+                        <div class="blog-date">June 25, 2025</div>
+                        <h3 class="blog-title">The Future of Luxury Transportation</h3>
+                        <p class="blog-excerpt">Exploring the latest trends in high-end vehicles and sustainable luxury mobility solutions...</p>
+                        <a href="#" class="read-more">Read More →</a>
                     </div>
-                    <div class="review-card">
-                        <div class="review-name">naam</div>
-                        <div class="review-stars">★★★★★</div>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <i class="fas fa-gem"></i>
                     </div>
-                    <div class="review-card">
-                        <div class="review-name">naam</div>
-                        <div class="review-stars">★★★★★</div>
+                    <div class="blog-content">
+                        <div class="blog-date">June 22, 2025</div>
+                        <h3 class="blog-title">Investment Grade Diamonds</h3>
+                        <p class="blog-excerpt">Understanding the market for rare diamonds and how to make informed luxury investments...</p>
+                        <a href="#" class="read-more">Read More →</a>
                     </div>
-                </div>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-date">June 20, 2025</div>
+                        <h3 class="blog-title">Luxury Real Estate Trends</h3>
+                        <p class="blog-excerpt">Market insights and emerging trends in premium property investments worldwide...</p>
+                        <a href="#" class="read-more">Read More →</a>
+                    </div>
+                </article>
             </div>
         </div>
     </section>
 
-    <section class="footer-image">
-        <footer class="footer">
-     
-            <div class="footer-links">
-                <a href="#" class="footer-link">Privacy Policy</a>
-                <a href="#" class="footer-link">Terms of Service</a>
-                <a href="#" class="footer-link">Follow us on Social Media</a>
-                <a href="#" class="footer-link">Contact Us</a>
+    <!-- Newsletter Section -->
+    <section class="newsletter-section">
+        <div class="container">
+            <h2>Stay Updated</h2>
+            <p>Subscribe to our newsletter for exclusive offers and luxury market insights</p>
+            <form class="newsletter-form" id="newsletterForm">
+                <input type="email" placeholder="Enter your email address" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Global Market</h3>
+                <p>Your premier destination for luxury and high-value objects. Experience excellence in every transaction.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
             </div>
+            
+            <div class="footer-section">
+                <h3>Categories</h3>
+                <ul>
+                    <li><a href="#">Luxury Vehicles</a></li>
+                    <li><a href="#">Timepieces</a></li>
+                    <li><a href="#">Fine Jewelry</a></li>
+                    <li><a href="#">Real Estate</a></li>
+                    <li><a href="#">Yachts & Marine</a></li>
+                    <li><a href="#">Art & Collectibles</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Customer Service</h3>
+                <ul>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Shipping Info</a></li>
+                    <li><a href="#">Returns & Exchanges</a></li>
+                    <li><a href="#">Size Guide</a></li>
+                    <li><a href="#">Authentication</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Cookie Policy</a></li>
+                    <li><a href="#">Security</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 Global Market. All rights reserved. | Luxury redefined.</p>
         </div>
     </footer>
 
-        <img src="media/footer.png" alt="Footer Image" style="display: none;">
-        <div class="footer-image-placeholder">
-      
-      
+    <!-- Modal for Product Details -->
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="modalContent">
+                <!-- Dynamic content will be loaded here -->
+            </div>
         </div>
-    </section>
+    </div>
 
-  
-    
-   <link rel="stylesheet" href="style.css">
+    <script src="./script.js"></script>
 </body>
 </html>
